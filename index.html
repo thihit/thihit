@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+  <style>
+    body{
+      background-color: rgb(160, 156, 156);
+    }
+header{
+  font-family: Changa;
+  background-color: rgb(165, 18, 18);
+  color: #F5DF4D;
+  text-align: center;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.767);
+}
+
+.section1{
+  font-family:'Josefin Sans' ;
+  background-color: #F5DF4D;
+  text-align: center;
+  border-radius: 15px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 250px;
+  height: 250px;
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.774);
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+}
+
+footer{
+  visibility: hidden;
+  text-align: center;
+  background-color: #F5DF4D;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 15px;
+  font-family: "Josefin Sans";
+  padding: 15px;
+}
+
+
+input{
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 5px;
+  
+  width: 100px;
+  border-color: rgb(165, 18, 18);
+}
+
+button{
+  border-radius: 5px;
+  border-color: rgb(165, 18, 18);
+}
+  </style>
+</head>
+<body>
+  
+
+<header>
+<h2>Calcule o seu churrasco!</h2>
+</header>
+<section class="section1">
+  <h1>Churrascômetro</h1>
+
+  <p>Insira os dados:</p>
+<input id="i1" type="number" name="Adultos" placeholder="Adultos"><br>
+<input id="i2" type="number" name="Crianças" placeholder="Crianças"><br>
+<input id="i3" type="number" name="Duração" placeholder="Duração (h)"><br>
+<button onclick="calcule()">Calcule</button><br>
+</section>
+
+<footer id="footer">
+<h3 id="h3"></h3>
+</footer>
+
+
+<script>
+
+  var input1 = document.getElementById("i1")
+  var input2 = document.getElementById("i2")
+  var input3 = document.getElementById("i3")
+
+
+  
+
+  function calcule(){
+    let adultos = input1.value
+    let Crianças = input2.value
+    let duracao = input3.value
+    let carne = carnepp(duracao) * adultos + (carnepp(duracao)/2 * Crianças)
+    let cerveja = cervejapp(duracao) * adultos + (cervejapp(duracao)/2 * Crianças)
+    let bebida = bebidapp(duracao) * adultos + (bebidapp(duracao)/2 * Crianças)
+    document.getElementById("footer").style.visibility = "visible"
+    document.getElementById("h3").innerHTML = 
+    "Você ira precisar de " + carne/1000 + "kg de carne, " + 
+     Math.ceil(cerveja/355) + " latas de cerveja e " + bebida/1000 + "l de bebidas no geral." 
+
+    
+  }
+
+  function carnepp(duracao){
+    if(duracao >= 6){
+      return 650
+    } else{return 400}
+    
+  }
+
+  function cervejapp(duracao){
+    if(duracao >= 6){
+      return 2000
+    } else{return 1200}
+    
+  }
+
+  function bebidapp(duracao){
+    if(duracao >= 6){
+      return 1200
+    } else{return 800}
+    
+  }
+
+
+  
+
+
+</script>
+</body>
+</html>
